@@ -1,0 +1,160 @@
+import React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Button, navigation } from 'react-native';
+import { TouchableOpacity } from 'react-native-web';
+
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+    detail: 'Haseeb',
+  },
+];
+
+  // const this.state = {
+  //   flag:10
+  // }
+
+const Item = ({ title}) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+// const Detail = ({ detail }) => (
+//   <View style={styles.item}>
+//     <Text style={styles.title}>{detail}</Text>      
+//   </View>
+// );
+
+const App = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+    
+    //<Item detail={item.detail} />
+    //<Detail detail={item.detail} />
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      
+
+      <View style = {{flex: 1, backgroundColor: 'red', flexDirection: 'row'}}>
+          {/* <Text>
+            FLEX 1
+          </Text> */}
+          <View style = {{flex: 0.334, backgroundColor: 'yellow', flexDirection: 'column'}}>
+            <View style = {{flex: 0.1, backgroundColor: 'green'}}> 
+            <Text>
+              Flag = flag
+            </Text>
+
+            </View>
+
+            <View style = {{flex: 0.1, backgroundColor: 'purple'}}> 
+            <Text>
+              Navigation 2
+            </Text>
+
+            </View>
+
+            <View style = {{flex: 0.1, backgroundColor: 'red'}}> 
+            <Text>
+              Navigation 3
+            </Text>
+
+            </View>
+
+          </View>
+          <View style = {{flex: 0.334, backgroundColor: 'pink'}}>
+
+          <FlatList
+            data={DATA}
+            // numColumns = {2}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+
+          </View>
+          <View style = {{flex: 0.334, backgroundColor: 'white'}}>
+          <Button
+        title="Press me"
+        onPress={() => props()}
+      />
+
+          </View>
+
+      </View>
+      
+      {/* <View style = {{flex: 2, backgroundColor: 'green'}}>
+        <Text>
+          FLEX 2
+        </Text>
+
+      </View>
+      
+      <View style = {{flex: 0.25, backgroundColor: 'purple'}}>
+      <Text>
+          FLEX 3
+        </Text>
+      </View> */}
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    //marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
